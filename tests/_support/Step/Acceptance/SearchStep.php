@@ -12,6 +12,7 @@ class SearchStep extends \AcceptanceTester
         $I->amOnPage('/');
         $I->searchSuccessful();
         $I->searchNotSuccessful();
+        $I->searchAdvanced();
     }
 
     private function searchSuccessful()
@@ -19,7 +20,6 @@ class SearchStep extends \AcceptanceTester
         $I = $this;
         $I->fillField(HomePage::$searchInput, HomePage::$searchSuccessValue);
         $I->click(HomePage::$searchButton);
-        $I->see(HomePage::$resultTable);
         $I->see(HomePage::$searchSuccessResult);
     }
 
@@ -29,6 +29,14 @@ class SearchStep extends \AcceptanceTester
         $I->fillField(HomePage::$searchInput, HomePage::$searchNotSuccessValue);
         $I->click(HomePage::$searchButton);
         $I->see(HomePage::$searchNotSuccessResult);
+    }
+
+    private function searchAdvanced()
+    {
+        $I = $this;
+        $I->click(HomePage::$searchSettingButton);
+        $I->click(HomePage::$searchSettingAdvancedLink);
+        $I->see(HomePage::$searchAdvancedText);
     }
 
 }
