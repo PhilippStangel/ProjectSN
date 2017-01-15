@@ -5,7 +5,9 @@ use Page\Acceptance\HomePage;
 
 class SearchStep extends \AcceptanceTester
 {
-    // Main function
+    // ----------------------- Main function ------------------------
+    // --------------------------------------------------------------
+
     public function searchTest()
     {
         $I = $this;
@@ -14,6 +16,9 @@ class SearchStep extends \AcceptanceTester
         $I->searchNotSuccessful();
         $I->searchAdvanced();
     }
+
+    // ----------------------- Sub functions ------------------------
+    // --------------------------------------------------------------
 
     private function searchSuccessful()
     {
